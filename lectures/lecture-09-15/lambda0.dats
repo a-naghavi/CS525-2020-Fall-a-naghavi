@@ -66,7 +66,7 @@ case+ t0 of
 K == lam x => lam y => y
 *)
 val K =
-T0Mlam("x", T0Mlam("y", T0Mvar("y")))
+T0Mlam("x", T0Mlam("y", T0Mvar("x")))
 
 (* ****** ****** *)
 
