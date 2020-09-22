@@ -74,29 +74,6 @@ case- t0 of
 
 (* ****** ****** *)
 
-val l0=mylist_nil{string}()
-val l1=mylist_cons{string}("a",l0)
-val l2=mylist_cons{string}("b",l1)
-val l3=mylist_cons{string}("c",l2)
-val l4=mylist_cons{string}("d",l3)
-val S =
-T0Mlam("x",
-T0Mlam("y", 
-T0Mlam("z",
-T0Mapp(
-T0Mapp(T0Mvar("x"), T0Mvar("z"))
-,
-T0Mapp(T0Mvar("y"), T0Mvar("z"))
-)
-)
-)
-)
-val sl=t0erm_fvset(S)
-val ()=println!("\n*** Testing mylist_sing, mylist_append and mylist_remove (Q1): ")
-val ()=print!("sing('x') = ",mylist_sing<string>("x"))
-val ()=print!("l1 = ",l4)
-val ()=print!("l2 = ",l3)
-val ()=print!("append(l1,l2) = ", mylist_append(l4,l3))
-val ()=print!("remove(l1,'b') = ", mylist_remove(l4,"b"))
+
 
 (* end of [lambda0_fvset.dats] *)

@@ -9,6 +9,9 @@
 #staload
 "./../../../mylib/mylib.dats"
 (* ****** ****** *)
+#staload "./lambda0_print.dats"
+#staload "./lambda0_fvset.dats"
+#staload "./lambda0_interp.dats"
 
 #dynload "./lambda0_print.dats"
 #dynload "./lambda0_fvset.dats"
@@ -70,6 +73,43 @@ T0Mapp(T0Mvar("y"), T0Mvar("z"))
 implement
 main0() =
 {
+(*Testing for Q1*)
+
+val l0=mylist_nil{string}()
+val l1=mylist_cons{string}("a",l0)
+val l2=mylist_cons{string}("b",l1)
+val l3=mylist_cons{string}("c",l2)
+val l4=mylist_cons{string}("d",l3)
+val S =
+T0Mlam("x",
+T0Mlam("y",
+T0Mapp(
+T0Mapp(T0Mvar("f"), T0Mvar("y"))
+,
+T0Mapp(T0Mvar("x"), T0Mvar("z"))
+)
+)
+)
+
+val ()=println!("\n*** Testing mylist_sing, mylist_append, mylist_remove, and t0erm_fvset (Q1): ")
+val ()=print!("sing('x') = ",mylist_sing<string>("x"))
+val ()=print!("l1 = ",l4)
+val ()=print!("l2 = ",l3)
+val ()=print!("append(l1,l2) = ", mylist_append(l4,l3))
+val ()=print!("remove(l1,'b') = ", mylist_remove(l4,"b"))
+val ()=println!("fvset(",S,") = ",t0erm_fvset(S))
+
+
+(* Testing for Q2, and Q3 *)
+
+val t1=T0Mopr2("<",T0Mint(2),T0Mint(5))
+val t2=T0Mopr2(">=",T0Mint(3),T0Mint(3))
+val t3=T0Mopr2("!=",T0Mint(3),T0Mint(3))
+val () = println!("\n*** Testing t0erm_interp and t0_print for boolean terms and operations (Q2 , Q3): ")
+val () = println!(t1 , " = ", t0erm_interp(t1))
+val () = println!(t2 , " = ", t0erm_interp(t2))
+val () = println!(t3 , " = ", t0erm_interp(t3))
+
 val() = println!("\n\n*** end of testing ***")
 
 } (* end of [main0] *)
