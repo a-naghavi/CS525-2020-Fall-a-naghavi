@@ -17,6 +17,26 @@
 "./../../mylib2/mylib2.dats" // your own library for this class
 *)
 (* ****** ****** *)
+
+typedef
+tpnam = string
+
+datatype type0 =
+| T0Pbas of tpnam
+| T0Pfun of (type0, type0)
+(*
+| T0Ptup2 of (type0, type0)
+*)
+(* ****** ****** *)
+fun
+print_type0
+(xs: type0): void
+overload print with print_type0
+fun
+fprint_type0
+(out: FILEref, xs: type0): void
+overload fprint with fprint_type0
+(* ****** ****** *)
 //
 // creating an alias
 //
@@ -48,6 +68,13 @@ datatype t0erm = // level-0
   ( t0erm(*cond*)
   , t0erm(*then*), t0erm(*else*))
 //
+(*
+| T0Mtups of t0ermlst
+| T0Mprjs of (t0erm, int)
+*)
+//
+where t0ermlst = mylist(t0erm)
+//
 (* ****** ****** *)
 fun
 print_t0erm
@@ -59,33 +86,7 @@ fprint_t0erm
 overload fprint with fprint_t0erm
 (* ****** ****** *)
 
-datatype
-value =
-| VALint of (int)
-| VALbtf of (bool)
-| VALlam of (t0erm, envir)
-| VALfix of (t0var, value(*VALlam*))
-
-and
-envir =
-ENVIR of mylist(@(t0var, value))
-
-(* ****** ****** *)
-//
-fun
-print_value(value): void
-fun
-fprint_value(FILEref, value): void
-//
-overload print with print_value
-overload fprint with fprint_value
-//
-(* ****** ****** *)
-
-fun
-t0erm_eval0(prog: t0erm): value
-fun
-t0erm_eval1(t0m: t0erm, env: envir): value
+fun t0erm_typeck0(prog: t0erm): type0
 
 (* ****** ****** *)
 
