@@ -65,7 +65,7 @@ T0Mlam("n",
 
 
 (* Implementing coin_change in Lambda0 *)
-val coin_change=
+val aux_fun=
 T0Mfix1("aux",
 T0Mlam("sum",
 T0Mlam("n",
@@ -88,6 +88,8 @@ T0Mcond(T0Mopr2(">",tsum,T0Mint(0)),
 )
 )
 )
+
+val coin_change=T0Mlam("sum",T0Mapp(T0Mapp(aux_fun, T0Mvar("sum")),T0Mint(3)))
 (* end of implementing coin_change in Lambda0 *)
 
 
@@ -116,7 +118,7 @@ val()=println!("\nTesting lambda based coin_get function :")
 val()=println!("coin_get(list,1) = ", t0erm_interp(T0Mapp(T0Mapp(coin_get,tlist),T0Mint(1))))
 val()=println!("\nTesting coin_change function: ")
 val()=println!("The result from coin_change(",x,") which is impelemented by ATS = ", fcoin_change(x))
-val()=println!("The result from coin_change(",x,") which is impelemented by lambda0 = ", t0erm_interp(T0Mapp(T0Mapp(coin_change, T0Mint(x)),T0Mint(3))))
+val()=println!("The result from coin_change(",x,") which is impelemented by lambda0 = ", t0erm_interp(T0Mapp(coin_change,T0Mint(x))))
 
 }
 

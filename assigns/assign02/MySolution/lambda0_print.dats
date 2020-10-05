@@ -32,7 +32,7 @@ fprint_t0erm(stdout_ref, t0)
 implement
 fprint_t0erm(out, t0) =
 (
-case- t0 of
+case+ t0 of
 | T0Mint(i0) =>
   fprint!(out, "T0Mint(", i0, ")")
 | T0Mvar(x0) =>

@@ -61,7 +61,7 @@ implement
 t0erm_subst
 (t0, x0, sub) =
 ( // not-tail-recursive
-case- t0 of
+case+ t0 of
 //
 | T0Mint _ => t0
 //
@@ -123,7 +123,7 @@ case- t0 of
 implement
 t0erm_interp(t0) =
 (
-case- t0 of
+case+ t0 of
 | T0Mint _ => t0
 | T0Mlam _ => t0
 | T0Mapp(t1, t2) =>
@@ -131,7 +131,7 @@ case- t0 of
     val t1 = t0erm_interp(t1)
     val t2 = t0erm_interp(t2) // call-by-value
   in
-    case- t1 of
+    case+ t1 of
     | T0Mlam(x0, t1) =>
       t0erm_interp
       (t0erm_subst(t1, x0, t2))
@@ -146,7 +146,7 @@ T0Mopr1(opr, t1) =>
 let
   val t1 = t0erm_interp(t1)
 in
-  case- opr of
+  case+ opr of
   | "-" =>
     let
     val-T0Mint(i1) = t1 in T0Mint(~i1)
@@ -170,7 +170,7 @@ let
   val t1 = t0erm_interp(t1)
   val t2 = t0erm_interp(t2)
 in
-  case- opr of
+  case+ opr of
   | "+" =>
     let
     val-T0Mint(i1) = t1
@@ -276,10 +276,11 @@ case+ t of
   let
   val el=mylist_nth_opt(list,i)
   in
-    case- el of
+    case+ el of
     | myoptn_cons(t1) =>
       t1
-
+    | _ =>
+      T0Mint(0)
   end
   )
 | _ => t
