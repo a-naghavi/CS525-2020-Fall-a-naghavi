@@ -1,0 +1,55 @@
+---
+os:
+  - linux
+
+language: c
+
+node_js:
+  - "5.10.1"
+
+env:
+  - export NODE_VERSION="5.10.1"
+
+addons:
+  apt:
+    packages:
+      - libgc-dev
+      - libgmp-dev
+
+before_install:
+  - date
+  - export PATSHOME=${HOME}/ATS2
+  - export PATH=${PATH}:${PATSHOME}/bin
+  - export REPOHOME=${TRAVIS_BUILD_DIR}
+  - export XANADU=xanadu-2020-10-18
+  - export XATSHOME=${REPOHOME}/${XANADU}/.
+  - export GCC=gcc
+  - export CLANG=clang
+
+install:
+  - ${REPOHOME}/travis-ci/install-ats2.sh 0.4.2
+
+after_install:
+  - date
+
+before_script:
+  - date
+
+script:
+  # Building ATS2
+  - cd ${PATSHOME}
+  - ./configure&&make CC=${GCC} all
+  # Building Xanadu
+  - cd ${REPOHOME}
+  - (cd $XATSHOME/srcgen/xats && make libxatsopt)
+  - (cd midterm/Solution && make midterm)
+  - (cd midterm/Solution && ./midterm TEST/test01.lam)
+  - (cd midterm/Solution && ./midterm TEST/test02.lam)
+  - (cd assigns/assign02/Solution && make lambda1)
+  - (cd assigns/assign03/Solution && make lambda2)
+  - (cd assigns/assign03/Solution && ./lambda2 TEST/fact.lam)
+  - (cd assigns/assign03/Solution && ./lambda2 TEST/fibo.lam)
+  - (cd assigns/assign03/Solution && ./lambda2 TEST/coin_change.lam)  
+
+after_script:
+  - date

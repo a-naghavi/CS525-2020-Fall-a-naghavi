@@ -1,6 +1,12 @@
 # CS525-2020-Fall
 For teaching BU CAS CS 525: Compiler Design and Implementation.
 
+## Build Status
+
+* [![Build Status](https://travis-ci.org/hwxi/CS525-2020-Fall.svg?branch=master)](https://travis-ci.org/hwxi/CS525-2020-Fall) Ubuntu
+
+## Mirroring this repository
+
 Please create a private repository that mirrors this one and update
 frequently.
 
@@ -14,7 +20,9 @@ git clone https://github.com/hwxi/CS525-2020-Fall
 
 Step 2:
 
-Please create a repository of your own:
+Please create a repository of your own.
+For instance, the following one is created
+for my own use:
 
 https://github.com/hwxi/CS525-2020-Fall-hwxi
 
