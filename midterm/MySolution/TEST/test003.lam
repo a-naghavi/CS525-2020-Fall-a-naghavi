@@ -1,0 +1,7 @@
+fun
+main() =
+let
+    val theCoins =(1, (5, (10, 25)))
+in
+    theCoins.2
+end

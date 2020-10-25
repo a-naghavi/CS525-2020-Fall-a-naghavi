@@ -1,0 +1,129 @@
+fun
+main() =
+(
+let
+val N=8
+in
+let
+val print_dots=(
+fix pd(i: int): _ =>
+  if i > 0 then
+   let val _ = print ". " in pd(i-1) end
+  else ()
+)
+in
+let 
+val print_row=(
+lam(i: int) =>
+ let val _ = print_dots (i) in
+ let val _ = print ("Q ") in
+ let val _ = print_dots (N-i-1) in
+ print "\n";
+ end
+ end
+ end
+)
+in
+let
+	val print_board = lam (bd:int*(int*(int*(int*(int*(int*(int*int))))))) =>
+(
+  let val _ = print_row (bd.0) in
+  let val _ = print_row ((bd.1).0) in
+  let val _ = print_row (((bd.1).1).0) in
+  let val _ = print_row ((((bd.1).1).1).0) in
+  let val _ = print_row (((((bd.1).1).1).1).0) in
+  let val _ = print_row ((((((bd.1).1).1).1).1).0) in
+  let val _ = print_row (((((((bd.1).1).1).1).1).1).0) in
+  let val _ = print_row (((((((bd.1).1).1).1).1).1).1) in
+  	print("\n")
+  end
+  end
+  end
+  end
+  end
+  end
+  end
+  end
+
+)
+
+in
+
+let
+	val board_get =
+	(
+	lam (bd:int*(int*(int*(int*(int*(int*(int*int))))))) => 
+	lam (i:int):int =>
+	(
+  if i = 0 then bd.0
+  else if i = 1 then (bd.1).0
+  else if i = 2 then ((bd.1).1).0
+  else if i = 3 then (((bd.1).1).1).0
+  else if i = 4 then ((((bd.1).1).1).1).0
+  else if i = 5 then (((((bd.1).1).1).1).1).0
+  else if i = 6 then ((((((bd.1).1).1).1).1).1).0
+  else if i = 7 then ((((((bd.1).1).1).1).1).1).1
+  else -1
+	)
+	)
+
+in
+
+let 
+	val board_set =
+	(
+	lam (bd:int*(int*(int*(int*(int*(int*(int*int))))))) => 
+	lam (i:int) =>
+	lam (j:int) =>
+	(
+	let	val x0 = board_get(bd)(0) in
+	let	val x1 = board_get(bd)(1) in
+	let	val x2 = board_get(bd)(2) in
+	let	val x3 = board_get(bd)(3) in
+	let	val x4 = board_get(bd)(4) in
+	let	val x5 = board_get(bd)(5) in
+	let	val x6 = board_get(bd)(6) in
+	let	val x7 = board_get(bd)(7) in
+
+	if i = 0 then let
+    val x0 = j in (x0,(x1,(x2,(x3,(x4,(x5,(x6, x7)))))))
+  end else if i = 1 then let
+    val x1 = j in (x0,(x1,(x2,(x3,(x4,(x5,(x6, x7)))))))
+  end else if i = 2 then let
+    val x2 = j in (x0,(x1,(x2,(x3,(x4,(x5,(x6, x7)))))))
+  end else if i = 3 then let
+    val x3 = j in (x0,(x1,(x2,(x3,(x4,(x5,(x6, x7)))))))
+  end else if i = 4 then let
+    val x4 = j in (x0,(x1,(x2,(x3,(x4,(x5,(x6, x7)))))))
+  end else if i = 5 then let
+    val x5 = j in (x0,(x1,(x2,(x3,(x4,(x5,(x6, x7)))))))
+  end else if i = 6 then let
+    val x6 = j in (x0,(x1,(x2,(x3,(x4,(x5,(x6, x7)))))))
+  end else if i = 7 then let
+    val x7 = j in (x0,(x1,(x2,(x3,(x4,(x5,(x6, x7)))))))
+  end else bd
+
+	end
+	end
+	end
+	end
+	end
+	end
+	end
+	end
+
+	)
+	)
+in
+
+let val bd=(0,(1,(2,(3,(4,(5,(6,7)))))))
+in
+	let val _ = print(board_get(bd)(2)) in print("\n") end
+end (*for bd*)
+end (*for board_set*)
+end (*for board_get*)
+end (*for print_board*)
+end (*for print_row*)
+end (*for print_dots*)
+end (*for N*)
+)

@@ -1,0 +1,5 @@
+fun
+main() =
+(fix f(x:int): int =>
+f(x)
+)
