@@ -25,6 +25,9 @@ implement
 tpext_new() =
 T0Pext(ref<type0opt>(myoptn_nil()))
 
+implement 
+tpext_ref_eq(X,Y)=
+ref_get_ptr(X) = ref_get_ptr(Y)
 (* ****** ****** *)
 
 (* end of [lambda2_tpext.dats] *)

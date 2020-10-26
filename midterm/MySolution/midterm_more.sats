@@ -18,6 +18,9 @@ fun
 tpext_set
 (X: tpext, tp: type0): void
 (* ****** ****** *)
+fun
+tpext_ref_eq
+(X: tpext,Y: tpext): bool
 
 overload .get with tpext_get
 overload .set with tpext_set
@@ -40,3 +43,7 @@ t0erm_tinfer0
 fun
 t0erm_tinfer1
 (t0m: t0erm, env: s0env): type0
+
+fun
+s0env_remove
+(s0env, t0var): s0env

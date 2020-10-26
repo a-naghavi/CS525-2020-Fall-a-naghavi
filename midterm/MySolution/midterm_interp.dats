@@ -241,6 +241,22 @@ val v1 = t0erm_interp1(t1, env0)
 val v2 = t0erm_interp1(t2, env0)
 in
 case+ opr of
+| "print" =>
+(
+case- v1 of
+| VALint(i1) =>
+  let
+  val () = print(i1) in VALnil()
+  end
+| VALbtf(b1) =>
+  let
+  val () = print(b1) in VALnil()
+  end
+| VALstr(s1) =>
+  let
+  val () = print(s1) in VALnil()
+  end
+)
 | "+" =>
   let
   val-VALint(i1) = v1

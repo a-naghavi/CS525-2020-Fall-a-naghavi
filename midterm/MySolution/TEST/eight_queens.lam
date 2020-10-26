@@ -115,11 +115,107 @@ let
 	)
 	)
 in
+let 
 
-let val bd=(0,(1,(2,(3,(4,(5,(6,7)))))))
+
+val safety_test1=
+  (
+  lam (i0:int) =>
+  lam (j0:int) =>
+  lam (i1:int) =>
+  lam (j1:int):bool =>
+  (
+  if j0 != j1 then
+    if (i0-i1) != (j0-j1) then
+      if (i1-i0) != (j0-j1) then
+        0=0
+      else
+        0=1
+    else
+      0=1
+  else 
+    0=1
+  )
+  )
+
+
 in
-	let val _ = print(board_get(bd)(2)) in print("\n") end
+let
+val safety_test2=
+  (
+  fix st2(i0:int):int->int*(int*(int*(int*(int*(int*(int*int))))))->int->bool =>
+  lam (j0:int) =>
+  lam (bd:int*(int*(int*(int*(int*(int*(int*int))))))) =>
+  lam (i:int):bool =>
+  (
+  if i >= 0 then
+    if safety_test1(i0)(j0)(i)(board_get(bd)(i)) then
+      st2 (i0)(j0)(bd)(i-1)
+    else 0=1
+  else 0=0
+  )
+  )
+
+
+in
+let
+val search=
+  (
+  fix find(bd:int*(int*(int*(int*(int*(int*(int*int))))))):int->int->int->int =>
+  lam (i:int) =>
+  lam (j:int) =>
+  lam (nsol:int):int =>
+  (
+    if (j < N) then
+    let
+      val test = safety_test2 (i)(j)(bd)(i-1)
+    in
+      if test then
+      let
+        val bd1 = board_set (bd)(i)(j)
+      in
+        if i+1 = N then
+          let val _ = print ("Solution #") in
+          let val _ = print (nsol+1) in
+          let val _ = print (":\n\n") in
+          let val _ = print_board (bd1) in
+            find(bd)(i)(j+1)(nsol+1)
+          end
+          end
+          end
+          end
+            
+        else
+          find(bd1)(i+1)(0)(nsol)
+
+      end
+      else
+        find (bd)(i)(j+1)(nsol)
+    end
+    else
+    if i > 0 then
+     find (bd)(i-1)(board_get(bd)(i-1) + 1)(nsol) else nsol
+  )
+  )
+
+
+
+in
+let val bd=(0,(0,(0,(0,(0,(0,(0,0)))))))
+in
+	let val a=search (bd)(0)(0)(0)
+  in
+    let val _ = print("20")
+    in
+      6
+    end
+  end
+
 end (*for bd*)
+
+end (*for search*)
+end (*for safety_test2*)
+end (*for safety_test1*)
 end (*for board_set*)
 end (*for board_get*)
 end (*for print_board*)

@@ -1,5 +1,5 @@
 fun
 main() =
-(fix f(x:int): int =>
+(fix f(x:_): _ =>
 f(x)
 )

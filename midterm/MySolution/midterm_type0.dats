@@ -5,6 +5,8 @@
 (* ****** ****** *)
 #staload
 "./../../mylib/mylib.sats"
+#staload _ =
+"./../../mylib/mylib.dats"
 (* ****** ****** *)
 #include "share/atspre_staload.hats"
 (* ****** ****** *)
@@ -52,6 +54,7 @@ T0Ptup(tp11, tp12) =>
 
 in
 
+
 implement
 tunify(tp1, tp2) =
 (
@@ -91,21 +94,26 @@ end // end of [local]
 
 
 implement
+fprint_val<type0> =  fprint_type0
+
+(* ****** ****** *)
+
+implement
 print_type0(tp) =
 fprint_type0
 (stdout_ref, tp)
 implement
 fprint_type0(out, tp) =
 (
-case- tp of
+case+ tp of
 | T0Pbas(nm) =>
   fprint!(out, "T0Pbas(", nm, ")")
 | T0Pfun(tp1, tp2) =>
-  fprint!(out, "T0Pfun(", tp1, ", ", tp2, ")")
+  fprint!
+  (out, "T0Pfun(", tp1, ", ", tp2, ")")
 | T0Ptup(tp1, tp2) =>
-  fprint!(out, "T0Ptup(", tp1, ", ", tp2, ")")
+  fprint!
+  (out, "T0Ptup(", tp1, ", ", tp2, ")")
+| T0Pext(X0) =>
+  fprint!(out, "T0Pext(", X0.get(), ")")
 )
-
-(* ****** ****** *)
-
-(* end of [midterm_type0.dats] *)
