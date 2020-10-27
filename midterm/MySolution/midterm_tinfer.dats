@@ -126,17 +126,53 @@ end
   end
 | T0Mfst(tm1) =>
   let
-    val tp1=tinfer1(tm1)
-//    val ()=println!("\n\n\n\n\n\n",tp1,tm0,"\n\n\n\n\n\n")
-    val-T0Ptup(tp1,tp2) = tp1
+    val tpx=tinfer1(tm1)
+//    val-true = tunify(T0Ptup(tpext_new(),tpext_new()),tp1)
+//    val ()=println!("\n\n\n\n\n\n",tpx," ---- ",tm0,"\n\n\n\n\n\n")
+
   in
-    tp1
+    case+ tpx of 
+    | T0Pext(tex) =>
+    (
+    let
+      val tp1=tpext_new()
+      val tp2=tpext_new()
+      val-true = tunify(T0Ptup(tp1,tp2),tpx)
+    in
+      tp1
+    end
+    )
+    | _ =>
+    let
+      val-T0Ptup(tp1,tp2)=tpx
+    in
+      tp1
+    end
   end
 | T0Msnd(tm1) =>
   let
-    val-T0Ptup(tp1,tp2) = tinfer1(tm1)
+    val tpx=tinfer1(tm1)
+//    val-true = tunify(T0Ptup(tpext_new(),tpext_new()),tp1)
+//    val ()=println!("\n\n\n\n\n\n",tpx," ---- ",tm0,"\n\n\n\n\n\n")
+
   in
-    tp2
+    case+ tpx of 
+    | T0Pext(tex) =>
+    (
+    let
+      val tp1=tpext_new()
+      val tp2=tpext_new()
+      val-true = tunify(T0Ptup(tp1,tp2),tpx)
+    in
+      tp2
+    end
+    )
+    | _ =>
+    let
+      val-T0Ptup(tp1,tp2)=tpx
+    in
+      tp2
+    end
   end
 |
 T0Mtup(tm1, tm2) =>
@@ -172,20 +208,26 @@ T0Mapp(tm1, tm2) =>
 let
 
   val tp1 = tinfer1(tm1)
-//  val ()=println!("\n***********************",tp1,tm0,"***********************\n")
-  val-T0Pfun(targ, tres) = tp1 // tm1 should be a function!
   val new_env = remove_from_env(tm1,env)(* for occurs check *)
   val tp2 = t0erm_tinfer1(tm2,new_env)
-  val-true = tunify(targ, tp2)
-//  val ()=println!("tm1 ",tm1)
-//  val ()=println!("tm2 ",tm2)
-
-//  val ()=println!("Type tp1 ",tp1)
-//  val ()=println!("Type tp2 ",tp2)   
-
-  in
-    tres
-  end
+in
+  case+ tp1 of
+  | T0Pext(tex) =>
+    let
+      val targ=tpext_new()
+      val tres=tpext_new()
+      val-true = tunify(T0Pfun(targ,tres),tp1)
+    in
+      tres
+    end
+  | _ =>
+    let
+      val-T0Pfun(targ, tres)=tp1
+      val-true = tunify(targ, tp2)
+    in
+      tres
+    end
+end
 //
 |
 T0Manno(tm1, tp2) =>
