@@ -1,8 +1,0 @@
-fun main() =
-(
-let 
-    val a=2 
-in
-    a
-end
-)
