@@ -1,5 +1,5 @@
 (* ****** ****** *)
-#staload "./lambda2.sats"
+#staload "./lambda3.sats"
 (* ****** ****** *)
 #staload "./../../mylib/mylib.sats"
 (* ****** ****** *)
@@ -7,21 +7,27 @@
 (* ****** ****** *)
 
 implement
-print_t0erm(tm) =
-fprint_t0erm
-(stdout_ref, tm)
+type1_new_ext() =
+T1Pext(tpext_new())
 
 (* ****** ****** *)
 
 implement
-fprint_t0erm
+print_type1(tm) =
+fprint_type1(stdout_ref, tm)
+
+(* ****** ****** *)
+
+implement
+fprint_type1
 (out, tm) =
 (
 case- tm of
-| T0Mvar(x0) =>
-  fprint!(out, "T0Mvar(", x0, ")")
+| T1Pbas(nam) =>
+  fprint!
+  (out, "T1Pbas(", nam, ")")
 )
 
 (* ****** ****** *)
 
-(* end of [lambda2_t0erm.dats] *)
+(* end of [lambda3_type1.dats] *)

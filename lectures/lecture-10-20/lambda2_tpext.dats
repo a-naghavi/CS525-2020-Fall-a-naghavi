@@ -27,5 +27,3 @@ T0Pext(ref<topt0>(myoptn_nil()))
 (* ****** ****** *)
 
 (* end of [lambda2_tpext.dats] *)
-
-

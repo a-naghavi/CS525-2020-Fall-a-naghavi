@@ -1,16 +1,14 @@
-(*
-** For your
-** final project
-*)
 (* ****** ****** *)
 #staload
-"./../mylib/mylib.sats"
+"./../..\
+/mylib/mylib.sats"
 (* ****** ****** *)
 //
 // LEVEL-0 SYNTAX
 //
 (* ****** ****** *)
-typedef tpnam = string
+typedef
+tpnam = string
 (* ****** ****** *)
 //
 datatype type0 =
@@ -57,16 +55,9 @@ typedef t0var = string
 // abstract syntax
 //
 datatype
-t0pgm =
-|
-T0PGM of
-( t0dclist
-, t0erm(*main*))
-//
-and t0dcl =
+t0dcl =
 | T0DCL of
-  ( t0var(*name*)
-  , t0erm(*defn*))
+  (t0var, t0erm)
 //
 and t0erm =
 //
@@ -81,12 +72,10 @@ and t0erm =
 //
 | T0Mlam of
   ( t0var
-  , type0opt(*arg*)
-  , t0erm
-  , type0opt(*res*))
+  , type0opt, t0erm)
 | T0Mfix of
   ( t0var
-  , t0erm(*T0Mlam*))
+  , type0opt, t0erm)
 //
 | T0Mapp of (t0erm, t0erm)
 //
@@ -113,24 +102,6 @@ where t0dclist = mylist(t0dcl)
   and t0ermlst = mylist(t0erm)
   and t0ermopt = myoptn(t0erm)
 //
-(* ****** ****** *)
-fun
-print_t0pgm
-(xs: t0pgm): void
-overload print with print_t0pgm
-fun
-fprint_t0pgm
-(out: FILEref, xs: t0pgm): void
-overload fprint with fprint_t0pgm
-(* ****** ****** *)
-fun
-print_t0dcl
-(xs: t0dcl): void
-overload print with print_t0dcl
-fun
-fprint_t0dcl
-(out: FILEref, xs: t0dcl): void
-overload fprint with fprint_t0dcl
 (* ****** ****** *)
 fun
 print_t0erm
@@ -264,13 +235,7 @@ overload fprint with fprint_t1var
 (* ****** ****** *)
 
 datatype
-t1pgm =
-|
-T1PGM of
-( t1dclist
-, t1erm(*main*))
-
-and t1dcl =
+t1dcl =
 | T1DCL of
   (t1var, t1erm)
 
@@ -324,27 +289,12 @@ overload print with print_t1erm
 overload fprint with fprint_t1erm
 //
 (* ****** ****** *)
-//
-fun
-trans01_type: type0 -> type1
-fun
-trans01_term: t0erm -> t1erm
-fun
-trans01_tdcl: t0dcl -> t1dcl
-fun
-trans01_tpgm: t0pgm -> t1pgm
-//
-(* ****** ****** *)
 
 fun
 type1_unify
-(tp1: type1, tp2: type1): bool
-
-(* ****** ****** *)
-
-fun t1erm_tinfer(t1pgm): void
-fun t1erm_tinfer(t1dcl): void
-fun t1erm_tinfer(t1erm): void
+(type1, type1): bool
+fun
+t1erm_tinfer(t1erm): type1
 
 (* ****** ****** *)
 
@@ -380,15 +330,4 @@ overload fprint with fprint_value
 //
 (* ****** ****** *)
 
-fun
-t1pgm_interp(t1pgm): value
-
-(* ****** ****** *)
-//
-fun
-project_main0
-{n:int | n >= 1}(int(n), !argv(n)): void
-//
-(* ****** ****** *)
-
-(* end of [project.sats] *)
+(* end of [lambda3.sats] *)
