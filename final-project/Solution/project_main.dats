@@ -30,7 +30,11 @@ UN = "prelude/SATS/unsafe.sats"
 #dynload "./project_type1.dats"
 #dynload "./project_t1var.dats"
 #dynload "./project_t1erm.dats"
-
+//
+#dynload "./project_s0env.dats"
+#dynload "./project_trans01.dats"
+#dynload "./project_tinfer.dats"
+//
 (* ****** ****** *)
 //
 #include "./libxatsopt.hats"
@@ -260,7 +264,13 @@ s1e0.node() of
 S1Eid0 _ => auxid0(s1e0)
 //
 |
-S1Elist _ => auxlist(s1e0)
+S1Elist
+( s1es ) => auxlist(s1e0)
+(*
+|
+S1Elist
+( _, _ ) => auxlist(s1e0)
+*)
 //
 |
 S1Eapp2 _ => auxapp2(s1e0)

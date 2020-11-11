@@ -33,6 +33,12 @@ OBJECTS += \
 project_t1var_dats.o
 OBJECTS += \
 project_t1erm_dats.o
+OBJECTS += \
+project_s0env_dats.o
+OBJECTS += \
+project_trans01_dats.o
+OBJECTS += \
+project_tinfer_dats.o
 
 ######
 
@@ -62,6 +68,15 @@ project.sats project_t1var.dats ; $(PATSCC) -o $@ -c project_t1var.dats
 project_t1erm_dats.o : \
 project.sats project_t1erm.dats ; $(PATSCC) -o $@ -c project_t1erm.dats
 
+project_s0env_dats.o : \
+project.sats project_s0env.dats ; $(PATSCC) -o $@ -c project_s0env.dats
+
+project_trans01_dats.o : \
+project.sats project_trans01.dats ; $(PATSCC) -o $@ -c project_trans01.dats
+
+project_tinfer_dats.o : \
+project.sats project_tinfer.dats ; $(PATSCC) -o $@ -c project_tinfer.dats
+
 ######
 
 libxatsopt: ; \
@@ -71,6 +86,15 @@ libxatsopt_clean: ; \
 (cd $(XANADU); make -C srcgen/xats clean)
 libxatsopt_cleanall: ; \
 (cd $(XANADU); make -C srcgen/xats cleanall)
+
+######
+
+test::
+test:: ; ./project TEST/fact.lam
+test:: ; ./project TEST/fibo.lam
+test:: ; ./project TEST/test03.lam
+test:: ; ./project TEST/coin_change.lam
+
 
 ######
 

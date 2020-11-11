@@ -182,6 +182,7 @@ where type1lst = mylist(type1)
 fun tpext_new(): tpext
 fun type1_new_ext(): type1
 fun type1_new_tup(): type1
+fun type1_new_fun(): type1
 
 (* ****** ****** *)
 fun
@@ -263,6 +264,13 @@ overload fprint with fprint_t1var
 //
 (* ****** ****** *)
 
+abstype
+t1erm_tbox = ptr
+typedef
+t1erm = t1erm_tbox
+
+(* ****** ****** *)
+
 datatype
 t1pgm =
 |
@@ -274,7 +282,8 @@ and t1dcl =
 | T1DCL of
   (t1var, t1erm)
 
-and t1erm =
+and
+t1erm_node =
 | T1Mnil of ()
 //
 | T1Mbtf of bool
@@ -317,6 +326,20 @@ where t1dclist = mylist(t1dcl)
 (* ****** ****** *)
 //
 fun
+t1erm_get_node
+  (t1erm): t1erm_node
+fun
+t1erm_get_type
+  (t1m0: t1erm): type1
+//
+#symload
+.node with t1erm_get_node
+#symload
+.type with t1erm_get_type
+//
+(* ****** ****** *)
+//
+fun
 print_t1erm(t1erm): void
 fun
 fprint_t1erm(FILEref, t1erm): void
@@ -346,12 +369,6 @@ overload fprint with fprint_t1pgm
 //
 (* ****** ****** *)
 //
-fun
-trans01_type: type0 -> type1
-fun
-trans01_term: t0erm -> t1erm
-fun
-trans01_tdcl: t0dcl -> t1dcl
 fun
 trans01_tpgm: t0pgm -> t1pgm
 //
