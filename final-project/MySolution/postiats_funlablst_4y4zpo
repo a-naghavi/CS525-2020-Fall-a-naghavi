@@ -1,0 +1,339 @@
+#if(0)
+ATSextern()
+atstype_boxed
+_057_home_057_amin_057_Docs_057_Compiler_040_Design_057_CS525_055_2020_055_Fall_057_CS525_055_2020_055_Fall_055_a_055_naghavi_057_assigns_057_assign04_057_project_interp_056_dats__t1erm_interp(atstype_boxed) ;
+#endif // end of [QUALIFIED]
+
+#if(0)
+ATSextern()
+atstype_boxed
+_057_home_057_amin_057_Docs_057_Compiler_040_Design_057_CS525_055_2020_055_Fall_057_CS525_055_2020_055_Fall_055_a_055_naghavi_057_assigns_057_assign04_057_project_interp_056_dats__envir_search(atstype_boxed, atstkind_type(atstype_ptrk)) ;
+#endif // end of [QUALIFIED]
+
+ATSstatic()
+atstype_boxed
+auxlst_2(atstype_boxed, atstype_boxed) ;
+
+#if(0)
+ATSextern()
+atstype_boxed
+_057_home_057_amin_057_Docs_057_Compiler_040_Design_057_CS525_055_2020_055_Fall_057_CS525_055_2020_055_Fall_055_a_055_naghavi_057_assigns_057_assign04_057_project_interp_056_dats__envir_extend(atstype_boxed, atstkind_type(atstype_ptrk), atstype_boxed) ;
+#endif // end of [QUALIFIED]
+
+ATSstatic()
+atstype_boxed
+aux_var_4(atstype_boxed, atstype_boxed) ;
+
+ATSstatic()
+atstype_boxed
+aux_app_5(atstype_boxed, atstype_boxed) ;
+
+ATSstatic()
+atstype_boxed
+aux_cond_6(atstype_boxed, atstype_boxed) ;
+
+ATSstatic()
+atstype_boxed
+aux_opr1_7(atstype_boxed, atstype_boxed) ;
+
+ATSstatic()
+atstype_boxed
+aux_opr2_9(atstype_boxed, atstype_boxed) ;
+
+#if(0)
+#if(0)
+ATSextern()
+atstkind_t0ype(atstype_bool)
+ATSLIB_056_prelude__gt_g0int_int__14(atstkind_t0ype(atstyvar_type(tk)), atstkind_t0ype(atstype_int)) ;
+#endif // end of [QUALIFIED]
+#endif // end of [TEMPLATE]
+
+ATSstatic()
+atstkind_t0ype(atstype_bool)
+ATSLIB_056_prelude__gt_g0int_int__14__1(atstkind_t0ype(atstype_int), atstkind_t0ype(atstype_int)) ;
+
+#if(0)
+#if(0)
+ATSextern()
+atstkind_t0ype(atstype_bool)
+ATSLIB_056_prelude__lt_g0int_int__18(atstkind_t0ype(atstyvar_type(tk)), atstkind_t0ype(atstype_int)) ;
+#endif // end of [QUALIFIED]
+#endif // end of [TEMPLATE]
+
+ATSstatic()
+atstkind_t0ype(atstype_bool)
+ATSLIB_056_prelude__lt_g0int_int__18__1(atstkind_t0ype(atstype_int), atstkind_t0ype(atstype_int)) ;
+
+#if(0)
+#if(0)
+ATSextern()
+atstkind_t0ype(atstype_bool)
+ATSLIB_056_prelude__eq_g0int_int__21(atstkind_t0ype(atstyvar_type(tk)), atstkind_t0ype(atstype_int)) ;
+#endif // end of [QUALIFIED]
+#endif // end of [TEMPLATE]
+
+ATSstatic()
+atstkind_t0ype(atstype_bool)
+ATSLIB_056_prelude__eq_g0int_int__21__1(atstkind_t0ype(atstype_int), atstkind_t0ype(atstype_int)) ;
+
+#if(0)
+#if(0)
+ATSextern()
+atstkind_t0ype(atstype_bool)
+ATSLIB_056_prelude__lte_g0int_int__24(atstkind_t0ype(atstyvar_type(tk)), atstkind_t0ype(atstype_int)) ;
+#endif // end of [QUALIFIED]
+#endif // end of [TEMPLATE]
+
+ATSstatic()
+atstkind_t0ype(atstype_bool)
+ATSLIB_056_prelude__lte_g0int_int__24__1(atstkind_t0ype(atstype_int), atstkind_t0ype(atstype_int)) ;
+
+#if(0)
+#if(0)
+ATSextern()
+atstkind_t0ype(atstype_bool)
+ATSLIB_056_prelude__gte_g0int_int__27(atstkind_t0ype(atstyvar_type(tk)), atstkind_t0ype(atstype_int)) ;
+#endif // end of [QUALIFIED]
+#endif // end of [TEMPLATE]
+
+ATSstatic()
+atstkind_t0ype(atstype_bool)
+ATSLIB_056_prelude__gte_g0int_int__27__1(atstkind_t0ype(atstype_int), atstkind_t0ype(atstype_int)) ;
+
+#if(0)
+#if(0)
+ATSextern()
+atstkind_t0ype(atstype_bool)
+ATSLIB_056_prelude__neq_g0int_int__30(atstkind_t0ype(atstyvar_type(tk)), atstkind_t0ype(atstype_int)) ;
+#endif // end of [QUALIFIED]
+#endif // end of [TEMPLATE]
+
+ATSstatic()
+atstkind_t0ype(atstype_bool)
+ATSLIB_056_prelude__neq_g0int_int__30__1(atstkind_t0ype(atstype_int), atstkind_t0ype(atstype_int)) ;
+
+#if(0)
+ATSextern()
+atstype_boxed
+_057_home_057_amin_057_Docs_057_Compiler_040_Design_057_CS525_055_2020_055_Fall_057_CS525_055_2020_055_Fall_055_a_055_naghavi_057_assigns_057_assign04_057_project_interp_056_dats__t1erm_interp1(atstype_boxed, atstype_boxed) ;
+#endif // end of [QUALIFIED]
+
+#if(0)
+ATSextern()
+atstype_boxed
+_057_home_057_amin_057_Docs_057_Compiler_040_Design_057_CS525_055_2020_055_Fall_057_CS525_055_2020_055_Fall_055_a_055_naghavi_057_assigns_057_assign04_057_project_interp_056_dats__tdclist_interp(atstype_boxed) ;
+#endif // end of [QUALIFIED]
+
+#if(0)
+ATSextern()
+atstype_boxed
+_057_home_057_amin_057_Docs_057_Compiler_040_Design_057_CS525_055_2020_055_Fall_057_CS525_055_2020_055_Fall_055_a_055_naghavi_057_assigns_057_assign04_057_project_interp_056_dats__tdclist_interp1(atstype_boxed, atstype_boxed) ;
+#endif // end of [QUALIFIED]
+
+#if(0)
+ATSextern()
+atstype_boxed
+_057_home_057_amin_057_Docs_057_Compiler_040_Design_057_CS525_055_2020_055_Fall_057_CS525_055_2020_055_Fall_055_a_055_naghavi_057_assigns_057_assign04_057_project_056_sats__t1pgm_interp(atstype_boxed) ;
+#endif // end of [QUALIFIED]
+
+/*
+/home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 477(line=32, offs=13) -- 520(line=33, offs=35)
+*/
+/*
+local: 
+global: t1erm_interp$0$0(level=0)
+local: 
+global: 
+*/
+ATSextern()
+atstype_boxed
+_057_home_057_amin_057_Docs_057_Compiler_040_Design_057_CS525_055_2020_055_Fall_057_CS525_055_2020_055_Fall_055_a_055_naghavi_057_assigns_057_assign04_057_project_interp_056_dats__t1erm_interp(atstype_boxed arg0)
+{
+/* tmpvardeclst(beg) */
+ATStmpdec(tmpret2, atstype_boxed) ;
+/* tmpvardeclst(end) */
+ATSfunbody_beg()
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 465(line=32, offs=1) -- 520(line=33, offs=35)
+*/
+ATSINSflab(__patsflab_t1erm_interp):
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 486(line=33, offs=1) -- 520(line=33, offs=35)
+*/
+ATSINSmove(tmpret2, _057_home_057_amin_057_Docs_057_Compiler_040_Design_057_CS525_055_2020_055_Fall_057_CS525_055_2020_055_Fall_055_a_055_naghavi_057_assigns_057_assign04_057_project_interp_056_dats__t1erm_interp1(arg0, statmp0)) ;
+
+ATSfunbody_end()
+ATSreturn(tmpret2) ;
+} /* end of [_057_home_057_amin_057_Docs_057_Compiler_040_Design_057_CS525_055_2020_055_Fall_057_CS525_055_2020_055_Fall_055_a_055_naghavi_057_assigns_057_assign04_057_project_interp_056_dats__t1erm_interp] */
+
+/*
+/home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 719(line=51, offs=1) -- 1035(line=74, offs=2)
+*/
+/*
+local: 
+global: envir_search$1$0(level=0)
+local: 
+global: 
+*/
+ATSextern()
+atstype_boxed
+_057_home_057_amin_057_Docs_057_Compiler_040_Design_057_CS525_055_2020_055_Fall_057_CS525_055_2020_055_Fall_055_a_055_naghavi_057_assigns_057_assign04_057_project_interp_056_dats__envir_search(atstype_boxed arg0, atstkind_type(atstype_ptrk) arg1)
+{
+/* tmpvardeclst(beg) */
+ATStmpdec(tmpret3, atstype_boxed) ;
+ATStmpdec(tmp4, atstype_boxed) ;
+/* tmpvardeclst(end) */
+ATSfunbody_beg()
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 706(line=50, offs=1) -- 1035(line=74, offs=2)
+*/
+ATSINSflab(__patsflab_envir_search):
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 731(line=52, offs=1) -- 1035(line=74, offs=2)
+*/
+/*
+letpush(beg)
+*/
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 762(line=57, offs=1) -- 771(line=57, offs=10)
+*/
+#if(0)
+
+#endif
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 768(line=57, offs=7) -- 771(line=57, offs=10)
+*/
+ATSINSmove(tmp4, ATSSELcon(arg0, postiats_tysum_0, atslab__0)) ;
+/*
+letpush(end)
+*/
+
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 735(line=53, offs=3) -- 745(line=53, offs=13)
+*/
+ATSINSmove(tmpret3, auxlst_2(arg1, tmp4)) ;
+
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 731(line=52, offs=1) -- 1035(line=74, offs=2)
+*/
+/*
+INSletpop()
+*/
+ATSfunbody_end()
+ATSreturn(tmpret3) ;
+} /* end of [_057_home_057_amin_057_Docs_057_Compiler_040_Design_057_CS525_055_2020_055_Fall_057_CS525_055_2020_055_Fall_055_a_055_naghavi_057_assigns_057_assign04_057_project_interp_056_dats__envir_search] */
+
+/*
+/home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 783(line=59, offs=1) -- 1033(line=73, offs=2)
+*/
+/*
+local: auxlst_2$0(level=1)
+global: auxlst_2$0(level=1)
+local: x0$4740(1)(HSEtyrec(box; t1var_name=HSEapp(HSEcst(atstkind_type); HSEs2exp(S2Eextkind(atstype_ptrk))), t1var_type=HSEcst(type1), t1var_stamp=HSEapp(HSEcst(atstkind_t0ype); HSEs2exp(S2Eextkind(atstype_int)))))
+global: x0$4740(1)(HSEtyrec(box; t1var_name=HSEapp(HSEcst(atstkind_type); HSEs2exp(S2Eextkind(atstype_ptrk))), t1var_type=HSEcst(type1), t1var_stamp=HSEapp(HSEcst(atstkind_t0ype); HSEs2exp(S2Eextkind(atstype_int)))))
+*/
+ATSstatic()
+atstype_boxed
+auxlst_2(atstype_boxed env0, atstype_boxed arg0)
+{
+/* tmpvardeclst(beg) */
+ATStmpdec(apy0, atstype_boxed) ;
+ATStmpdec(tmpret5, atstype_boxed) ;
+ATStmpdec(tmp6, postiats_tyrec_1) ;
+ATStmpdec(tmp7, atstype_boxed) ;
+// ATStmpdec_void(tmp8) ;
+// ATStmpdec_void(tmp9) ;
+ATStmpdec(tmp10, atstkind_t0ype(atstype_bool)) ;
+/* tmpvardeclst(end) */
+ATSfunbody_beg()
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 783(line=59, offs=1) -- 1033(line=73, offs=2)
+*/
+ATSINSflab(__patsflab_auxlst_2):
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 845(line=65, offs=1) -- 1031(line=72, offs=6)
+*/
+ATScaseof_beg()
+/*
+** ibranchlst-beg
+*/
+ATSbranch_beg()
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 860(line=66, offs=3) -- 872(line=66, offs=15)
+*/
+ATSINSlab(__atstmplab0):
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 792(line=60, offs=3) -- 795(line=60, offs=6)
+*/
+ATSifthen(ATSCKptriscons(arg0)) { ATSINSgoto(__atstmplab3) ; } ;
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 872(line=66, offs=15) -- 872(line=66, offs=15)
+*/
+ATSINSlab(__atstmplab1):
+/*
+emit_instr: loc0 = : 0(line=0, offs=0) -- 0(line=0, offs=0)
+*/
+/*
+ibranch-mbody:
+*/
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 878(line=67, offs=3) -- 890(line=67, offs=15)
+*/
+
+ATSINSmove_nil(tmpret5) ;
+
+ATSbranch_end()
+
+ATSbranch_beg()
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 893(line=68, offs=3) -- 914(line=68, offs=24)
+*/
+ATSINSlab(__atstmplab2):
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 792(line=60, offs=3) -- 795(line=60, offs=6)
+*/
+#if(0)
+ATSifthen(ATSCKptrisnull(arg0)) { ATSINSdeadcode_fail() ; } ;
+#endif
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 914(line=68, offs=24) -- 914(line=68, offs=24)
+*/
+ATSINSlab(__atstmplab3):
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 905(line=68, offs=15) -- 908(line=68, offs=18)
+*/
+ATSINSmove(tmp6, ATSSELcon(arg0, postiats_tysum_2, atslab__0)) ;
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 910(line=68, offs=20) -- 913(line=68, offs=23)
+*/
+ATSINSmove(tmp7, ATSSELcon(arg0, postiats_tysum_2, atslab__1)) ;
+/*
+emit_instr: loc0 = : 0(line=0, offs=0) -- 0(line=0, offs=0)
+*/
+/*
+ibranch-mbody:
+*/
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 918(line=69, offs=1) -- 1031(line=72, offs=6)
+*/
+/*
+letpush(beg)
+*/
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 929(line=69, offs=12) -- 941(line=69, offs=24)
+*/
+ATSINSmove_void(tmp8, _057_home_057_amin_057_Docs_057_Compiler_040_Design_057_CS525_055_2020_055_Fall_057_CS525_055_2020_055_Fall_055_a_055_naghavi_057_assigns_057_assign04_057_project_056_sats__print_t1var(env0)) ;
+
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 929(line=69, offs=12) -- 941(line=69, offs=24)
+*/
+ATSINSmove_void(tmp9, atspre_print_newline()) ;
+
+/*
+letpush(end)
+*/
+
+/*
+emit_instr: loc0 = /home/amin/Docs/Compiler Design/CS525-2020-Fall/CS525-2020-Fall-a-naghavi/assigns/assign04/project_interp.dats: 950(line=70, offs=6) -- 982(line=70, offs=38)
+*/
+ATSINSmove(tmp10, atspre_eq_string_string(ATSSELboxrec(env0, postiats_tyrec_3, atslab__t1var_name), 
