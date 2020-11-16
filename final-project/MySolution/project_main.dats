@@ -1327,10 +1327,9 @@ type1 = t1pgm_tinfer(p1gm)
 val ()=
 println!
 ("result: type1 = ", type1)
-
-
 val
 value = t1pgm_interp(p1gm)
+val ()=print("\n")
 val ()=
 println!
 ("result: val = ", value)

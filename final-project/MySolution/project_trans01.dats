@@ -107,7 +107,38 @@ in
 end
 )
 
-
+fun auxoprs(env:s0env,t0:t0erm):t1erm=		
+(
+let 
+val-T0Moprs(o,tl0)=t0
+fun oprs(tl0:mylist(t0erm)):t1erm =
+	(
+	case tl0 of
+	| mylist_cons(hd0,tail0) =>
+	(
+		case tail0 of
+		| mylist_cons _ =>
+			T1Mopr2(o,trans01_term(env,hd0),oprs(tail0))
+		| mylist_nil() =>
+			trans01_term(env,hd0)
+	)
+	| mylist_nil() =>
+		T1Mopr1(o,T1Mnil)
+	)
+in
+	case tl0 of
+	| mylist_cons(hd0,tail0) =>
+	(
+		case tail0 of
+		| mylist_cons _ =>
+			oprs(tl0)
+		| mylist_nil() =>
+			T1Mopr1(o,trans01_term(env,hd0))
+	)
+	| mylist_nil() =>
+		T1Mopr1(o,T1Mnil)
+end
+)
 
 
 (* ******* A ******* *)
@@ -205,19 +236,8 @@ case- tm0 of
 		T1Mopr2(o, trans01(t0), trans01(t1))
 
 	| T0Moprs(o, tl0) =>
-		(
-		case tl0 of
-		| mylist_cons(hd0,tail0) =>
-		(
-			case tail0 of
-			| mylist_cons _ =>
-				T1Mopr2(o,trans01(hd0),trans01(T0Moprs(o,tail0)))
-			| mylist_nil() =>
-				trans01(hd0)
-		)
-		| mylist_nil() =>
-			T1Mopr2(o,T1Mnil, T1Mnil)
-		)
+		auxoprs(env0,tm0)
+
 	| T0Mtup(tl0) =>
 	(
 		case tl0 of

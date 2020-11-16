@@ -227,7 +227,7 @@ case- v1 of
   let
     val () =
     println!
-    ("There is an error")
+    ("There is an error",t1m0)
     val () = assertloc(false) in exit(1)
     end
   end (*let*)

@@ -185,7 +185,7 @@ in
     end
   | _ =>
     let
-      //val ()=println!("..here...tp1.......",tp1,"............")
+      val ()=println!("..here...tp1.......",tp1,"............tp2.....",tp2)
       val-T1Pfun(targ, tres)=tp1
       val-true = type1_unify(targ, tp2)
     in
@@ -218,7 +218,7 @@ T1Mtup(t1m1, t1m2) =>
 //
 | T1Mopr1(opr, tm1) =>
 let
-val tp1 = t1erm_tinfer(tm1)
+val tp1 = remove_links(t1erm_tinfer(tm1))
 in
   case+ opr of
   | "print" =>
@@ -283,14 +283,15 @@ let
 in
   tp1
 end
-) where
-{
+)
+//where
+//{
 
-val () =
-println!
-("t1erm_tinfer: t1m0 = ", t1m0)
+//val () =
+//println!
+//("t1erm_tinfer: t1m0 = ", t1m0)
 
-} (* end of [t0erm_tinfer] *)
+//} (* end of [t0erm_tinfer] *)
 
 end // end of [local]
 implement t1dcl_tinfer(td)=
