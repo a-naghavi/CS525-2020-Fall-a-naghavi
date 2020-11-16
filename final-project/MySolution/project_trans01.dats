@@ -123,7 +123,7 @@ fun oprs(tl0:mylist(t0erm)):t1erm =
 			trans01_term(env,hd0)
 	)
 	| mylist_nil() =>
-		T1Mopr1(o,T1Mnil)
+		T1Mnil
 	)
 in
 	case tl0 of
@@ -136,7 +136,7 @@ in
 			T1Mopr1(o,trans01_term(env,hd0))
 	)
 	| mylist_nil() =>
-		T1Mopr1(o,T1Mnil)
+		T1Mnil
 end
 )
 
