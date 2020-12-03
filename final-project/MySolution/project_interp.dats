@@ -95,7 +95,7 @@ println!
 ("aux_var: t1m0 = ", t1m0)
 *)
 //
-val-T1Mvar(x0) = t1m0
+val-T1Mvar(x0) = t1m0.node()
 val
 opt = envir_search(env0, x0)
 //
@@ -113,7 +113,7 @@ let
 //
 val-
 T1Mapp
-(tfun, targ) = t1m0
+(tfun, targ) = t1m0.node()
 //
 val vfun =
 t1erm_interp1(tfun, env0)
@@ -126,7 +126,7 @@ case- vfun of
 VALlam(tlam, elam) =>
 let
 val-
-T1Mlam(x0,_, body) = tlam
+T1Mlam(x0,_, body) = tlam.node()
 in
   t1erm_interp1
   ( body
@@ -138,7 +138,7 @@ let
 val-
 VALlam(t0, elam) = vlam
 val-
-T1Mlam(x0,_, body) = t0
+T1Mlam(x0,_, body) = t0.node()
 val efix =
 envir_extend(elam, f0, vfun)
 in
@@ -159,7 +159,7 @@ let
 //
 val-
 T1Mcond
-(t1, t2, t3) = t1m0
+(t1, t2, t3) = t1m0.node()
 //
 in
 let
@@ -187,7 +187,7 @@ let
 //
 val-
 T1Mopr1
-(opr, t1) = t1m0
+(opr, t1) = t1m0.node()
 in
 //
 let
@@ -243,7 +243,7 @@ let
 //
 val-
 T1Mopr2
-(opr, t1, t2) = t1m0
+(opr, t1, t2) = t1m0.node()
 in
 //
 let
@@ -343,7 +343,7 @@ implement
 t1erm_interp1
 (t1m0, env0) =
 (
-case+ t1m0 of
+case+ t1m0.node() of
 //
 | T1Mnil() =>
   VALnil()

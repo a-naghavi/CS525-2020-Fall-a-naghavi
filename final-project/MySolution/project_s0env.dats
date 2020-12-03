@@ -39,8 +39,8 @@ fun
 auxlst
 ( xts
 : mylist
-  @(t0var, type1)
-) : myoptn(type1) =
+  @(t0var, t1erm)
+) : myoptn(t1erm) =
 (
 case+ xts of
 |
@@ -53,7 +53,7 @@ if
 then
 myoptn_cons(xt1.1) else auxlst(xts)
 )
-} (*where*) // end of [s0env_search]
+}
 
 
 implement s0env_remove (env,x0)=
@@ -65,10 +65,10 @@ fun
 mylist_remove
 ( xts
 : mylist
-  @(t0var, type1)
+  @(t0var, t1erm)
 , x0:t0var
 ) : mylist
-  @(t0var, type1) =
+  @(t0var, t1erm) =
 (
 	case xts of
 	| mylist_nil() => mylist_nil()

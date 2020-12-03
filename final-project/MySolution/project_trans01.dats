@@ -61,9 +61,10 @@ fun get_tdclist_env(env:s0env,tdl1:t1dclist):s0env=
 	let 
 		val T1DCL(tv1,tm1)=td1
 		val tv0=t1var_get_name(tv1)
-		val tp1=t1var_get_type1(tv1)
+		val tp1=t1var_get_type(tv1)
+		val tmv1=t1erm_var(tv1)
 	in
-		get_tdclist_env(s0env_extend(env,tv0,tp1),tail)
+		get_tdclist_env(s0env_extend(env,tv0,tmv1),tail)
 	end
 	| mylist_nil() =>
 		env
@@ -72,19 +73,19 @@ fun get_tdclist_env(env:s0env,tdl1:t1dclist):s0env=
 fun auxtup(env:s0env,tlm0:mylist(t0erm)):t1erm=
 (
 	let 
-	fun auxtup1(tl0:mylist(t0erm))=
+	fun auxtup1(tl0:mylist(t0erm)):t1erm=
 	(
 		case tl0 of
 		| mylist_cons(hd0,tail0) =>
 		(
 			case tail0 of
 			| mylist_cons(hd1,tail1)  =>
-				T1Mtup(trans01_term(env,hd0),auxtup1(tail0))
+				t1erm_tup(trans01_term(env,hd0),auxtup1(tail0))
 			| mylist_nil() =>
-				T1Mtup(trans01_term(env,hd0),T1Mnil)
+				t1erm_tup(trans01_term(env,hd0),t1erm_nil())
 		) 
 		| mylist_nil() =>
-			T1Mtup(T1Mnil,T1Mnil)
+			t1erm_tup(t1erm_nil(),t1erm_nil())
 	)
 	in
 		auxtup1(tlm0)
@@ -98,9 +99,9 @@ let
 	fun prjcounter(t1:t1erm,i:int):t1erm =
 	(
 	if i> 0 then
-		prjcounter(T1Msnd(t1),i-1)
+		prjcounter(t1erm_snd(t1),i-1)
 	else
-		T1Mfst(t1)
+		t1erm_fst(t1)
 	)
 in
 	prjcounter(t1t,i)
@@ -118,12 +119,12 @@ fun oprs(tl0:mylist(t0erm)):t1erm =
 	(
 		case tail0 of
 		| mylist_cons _ =>
-			T1Mopr2(o,trans01_term(env,hd0),oprs(tail0))
+			t1erm_opr2(o,trans01_term(env,hd0),oprs(tail0))
 		| mylist_nil() =>
 			trans01_term(env,hd0)
 	)
 	| mylist_nil() =>
-		T1Mnil
+		t1erm_nil()
 	)
 in
 	case tl0 of
@@ -133,10 +134,10 @@ in
 		| mylist_cons _ =>
 			oprs(tl0)
 		| mylist_nil() =>
-			T1Mopr1(o,trans01_term(env,hd0))
+			t1erm_opr1(o,trans01_term(env,hd0))
 	)
 	| mylist_nil() =>
-		T1Mnil
+		t1erm_nil()
 end
 )
 
@@ -156,19 +157,19 @@ in
 //
 case- tm0 of
 	| T0Mnil() =>
-		T1Mnil()
+		t1erm_nil()
 	//
 	| T0Mbtf(v) =>
-		T1Mbtf(v)
+		t1erm_btf(v)
 
 	| T0Mint(v) =>
-		T1Mint(v)
+		t1erm_int(v)
 
 	| T0Mflt(v) =>
 		exit(1)
 
 	| T0Mstr(v) =>
-		T1Mstr(v)
+		t1erm_str(v)
 
 	| T0Mvar(x) =>
 	let
@@ -177,10 +178,10 @@ case- tm0 of
 	//
 	in
 		case opt of 
-		| myoptn_cons(tp1) =>
-			T1Mvar(t1var_make(x,tp1))
+		| myoptn_cons(tm1) =>
+			tm1
 		| myoptn_nil() =>
-			T1Mvar(t1var_new(x))
+			t1erm_var(t1var_new(x))
 
 
 	end // end of [T0Mvar]
@@ -196,8 +197,6 @@ case- tm0 of
 		    type1_new_ext()
 		  | myoptn_cons(tp0) => trans01_type(tp0)
 		  ) : type1 // end-of-val
-		  val
-		  new_env = s0env_extend(env0, x, tp1)
   		  val
 		  tp2 =
 		  (
@@ -206,34 +205,39 @@ case- tm0 of
 		    type1_new_ext()
 		  | myoptn_cons(tp0) => trans01_type(tp0)
 		  ) : type1 // end-of-val
+		  val tv1=t1var_make(x,tp1)
 		  val
-		  new_env = s0env_extend(env0, x, tp1)
+		  new_env = s0env_extend(env0, x, t1erm_var(tv1))
+		  val ()=println!("LLLLLLLLLLLLLLLLLLLLLLAAAAAAAAAAAAAAAAAAAAAAAMMMMMMMMMMMMMMMMMM")
 		in
-			T1Mlam(t1var_make(x,tp1),tp2,trans01_term(new_env,tr))
+			t1erm_lam(tv1,tp2,trans01_term(new_env,tr))
 		end
 	)
 	| T0Mfix(x,tr) =>
-		T1Mfix(t1var_new(x),T1Pext(tpext_new()),trans01(tr))
+		t1erm_fix(t1var_new(x),T1Pext(tpext_new()),trans01(tr))
 
 	| T0Mapp(t0, t1) =>
 	let
+	  val ()=println!("hereeeeeeeeeeeeeeeeeeeeee:")
 	  val t0t1 = trans01(t0)
+	  val ()=println!("###############t0t1: ",t0t1.type())
 	  val t1t1 = trans01(t1)
+	  val ()=println!("###############t1t1: ",t1t1.type())
 	in
-		T1Mapp(t0t1,t1t1)
+		t1erm_app(t0t1,t1t1)
 	end
 	| T0Mlet(tdl0, t0 ) =>
 		let 
 			val tdl1=trans01_tdclist(env0,tdl0)
 			val new_env=get_tdclist_env(env0,tdl1)
 		in
-			T1Mlet(tdl1,trans01_term(new_env,t0))
+			t1erm_let(tdl1,trans01_term(new_env,t0))
 		end
 	| T0Mopr1(o, t0) =>
-		T1Mopr1(o, trans01(t0))
+		t1erm_opr1(o, trans01(t0))
 
 	| T0Mopr2(o, t0, t1) =>
-		T1Mopr2(o, trans01(t0), trans01(t1))
+		t1erm_opr2(o, trans01(t0), trans01(t1))
 
 	| T0Moprs(o, tl0) =>
 		auxoprs(env0,tm0)
@@ -250,22 +254,22 @@ case- tm0 of
 				trans01(hd0)
 		)
 		|mylist_nil() =>
-			T1Mnil
+			t1erm_nil()
 	)
 	//
 	| T0Mprj(t0, i) =>
 		auxprj(env0,t0,i)
 	//
 	| T0Manno(t0, tp0) =>
-		T1Manno(trans01(t0),trans01_type(tp0))
+		t1erm_anno(trans01(t0),trans01_type(tp0))
 
 	| T0Mcond(tc, t0, to1) =>
 		(
 		case to1 of
 		| 
-		myoptn_nil() => T1Mcond(trans01(tc),trans01(t0),T1Mnil())
+		myoptn_nil() => t1erm_cond(trans01(tc),trans01(t0),t1erm_nil())
 		| 
-		myoptn_cons(t1) => T1Mcond(trans01(tc),trans01(t0),trans01(t1))
+		myoptn_cons(t1) => t1erm_cond(trans01(tc),trans01(t0),trans01(t1))
 		)
 //
 //|
@@ -302,13 +306,25 @@ implement trans01_tpgm(pg0: t0pgm) =
 implement
 trans01_type (tp00) =
 (
-	case+ tp00 of
+	let
+	fun transtype(tp000:type0)=
+	(
+	case+ tp000 of
 	| T0Pbas(b) =>
 		T1Pbas(b)
 	| T0Pfun(t0, t1) =>
-		T1Pfun(trans01_type(t0),trans01_type(t1))
+		T1Pfun(transtype(t0),transtype(t1))
 	| T0Ptup(t0, t1) =>
-		T1Ptup(trans01_type(t0),trans01_type(t1))
+		T1Ptup(transtype(t0),transtype(t1))
+	)
+	in
+		case+ tp00 of
+		| T0Ptup(t0,t1) =>
+			 T1Ptup(transtype(t0),T1Ptup(transtype(t1),T1Pnil))
+		| _ =>
+			transtype(tp00)
+	end
+	
 )
 
 

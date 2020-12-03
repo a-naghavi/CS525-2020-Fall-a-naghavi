@@ -76,21 +76,9 @@ t1var_get_name(t1v0)=
 t1v0.t1var_name
 )
 implement
-t1var_get_type1(t1v0)=
+t1var_get_type(t1v0)=
 (
 t1v0.t1var_type
-)
-
-implement
-t1var_set_type1(t1v0,tp)=
-(
-let
-val r = t1v0.t1var_type
-in
-case- r of
-| T1Pext(tr) =>
-tpext_set(tr,tp)
-end
 )
 
 end // end of [local]
